@@ -2,6 +2,7 @@
 extern crate reqwest;
 extern crate serde;
 extern crate serde_json;
+#[macro_use]
 extern crate failure;
 extern crate url;
 
@@ -42,7 +43,7 @@ impl fmt::Display for SortDir {
 
 pub fn company_info() -> Result<CompanyInfo, failure::Error>
 {
-    return send_request("info", None);
+    send_request("info", None)
 }
 
 pub fn history(start_date: Option<String>, end_date: Option<String>, flight_number: Option<u32>, sort_dir: Option<SortDir>) -> Result<Vec<HistoricalEvent>, failure::Error>
@@ -66,4 +67,17 @@ pub fn history(start_date: Option<String>, end_date: Option<String>, flight_numb
     }
 
     send_request("info/history", Some(params))
+}
+
+pub fn all_rocket_info() -> Result<Vec<Rocket>, failure::Error> {
+    send_request("rockets", None)
+}
+
+pub fn rocket_info(rocket_id: &str) -> Result<Rocket, failure::Error> {
+    if rocket_id.is_empty() {
+        bail!("cannot call rocket_info with an empty &str");
+    }
+
+    let endpoint = "rockets/".to_owned() + rocket_id;
+    send_request(endpoint.as_str(), None)
 }
