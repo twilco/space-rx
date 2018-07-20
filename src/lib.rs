@@ -41,12 +41,12 @@ impl fmt::Display for SortDir {
     }
 }
 
-pub fn company_info() -> Result<CompanyInfo, failure::Error>
+pub fn company() -> Result<CompanyInfo, failure::Error>
 {
     send_request("info", None)
 }
 
-pub fn history(start_date: Option<String>, end_date: Option<String>, flight_number: Option<u32>, sort_dir: Option<SortDir>) -> Result<Vec<HistoricalEvent>, failure::Error>
+pub fn historical_events(start_date: Option<String>, end_date: Option<String>, flight_number: Option<u32>, sort_dir: Option<SortDir>) -> Result<Vec<HistoricalEvent>, failure::Error>
 {
     let mut params = HashMap::new();
 
@@ -69,15 +69,57 @@ pub fn history(start_date: Option<String>, end_date: Option<String>, flight_numb
     send_request("info/history", Some(params))
 }
 
-pub fn all_rocket_info() -> Result<Vec<Rocket>, failure::Error> {
+pub fn all_rockets() -> Result<Vec<Rocket>, failure::Error> {
     send_request("rockets", None)
 }
 
-pub fn rocket_info(rocket_id: &str) -> Result<Rocket, failure::Error> {
+pub fn rocket(rocket_id: &str) -> Result<Rocket, failure::Error> {
     if rocket_id.is_empty() {
-        bail!("cannot call rocket_info with an empty &str");
+        bail!("cannot call rocket() with an empty &str");
     }
 
     let endpoint = "rockets/".to_owned() + rocket_id;
     send_request(endpoint.as_str(), None)
+}
+
+pub fn all_capsules() -> Result<Vec<Capsule>, failure::Error> {
+    send_request("capsules", None)
+}
+
+pub fn capsule(capsule_id: &str) -> Result<Capsule, failure::Error> {
+    if capsule_id.is_empty() {
+        bail!("cannot call capsule() with an empty capsule id");
+    }
+
+    let endpoint = "capsules/".to_owned() + capsule_id;
+    send_request(endpoint.as_str(), None)
+}
+
+pub fn all_launchpads() -> Result<Vec<Launchpad>, failure::Error> {
+    send_request("launchpads", None)
+}
+
+pub fn launchpad(launchpad_id: &str) -> Result<Launchpad, failure::Error> {
+    if launchpad_id.is_empty() {
+        bail!("cannot call launchpad() with an empty launchpad id");
+    }
+
+    let endpoint = "launchpads/".to_owned() + launchpad_id;
+    send_request(endpoint.as_str(), None)
+}
+
+pub fn latest_launch() -> Result<Launch, failure::Error> {
+    send_request("launches/latest", None)
+}
+
+pub fn next_launch() -> Result<Launch, failure::Error> {
+    send_request("launches/next", None)
+}
+
+pub fn past_launches() -> Result<Vec<Launch>, failure::Error> {
+    send_request("launches", None)
+}
+
+pub fn upcoming_launches() -> Result<Vec<Launch>, failure::Error> {
+    send_request("launches/upcoming", None)
 }
