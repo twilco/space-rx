@@ -1,6 +1,10 @@
 extern crate space_rx;
 
+//use space_rx::send_request;
+use space_rx::v2_api::*;
+
 fn main() {
-    //println!("{:?}", space_rx::history(None, None, None, None));
-    println!("{:?}", space_rx::latest_launch());
+    let cr = CompanyRequestBuilder::default().build().unwrap().send();
+
+    println!("{:?}", cr);
 }
