@@ -1,6 +1,6 @@
 #[derive(Debug, Deserialize)]
 pub struct Launch {
-    flight_number: u16,
+    flight_number: u32,
     mission_name: String,
     launch_year: String,
     launch_date_unix: u64,

@@ -9,8 +9,7 @@ use failure;
 pub mod models;
 pub use self::models::capsule::*;
 pub use self::models::common::*;
-pub use self::models::company::*;
-pub use self::models::event::*;
+pub use self::models::info::*;
 pub use self::models::launch::*;
 pub use self::models::launchpad::*;
 pub use self::models::rocket::*;
@@ -30,7 +29,7 @@ pub use self::models::rocket::*;
 //    Ok(response.json()?)
 //}
 
-//pub fn company(req: CompanyRequest) -> Result<CompanyInfo, failure::Error>
+//pub fn company(req: InfoRequest) -> Result<CompanyInfo, failure::Error>
 //{
 //    send_request(req)
 //}

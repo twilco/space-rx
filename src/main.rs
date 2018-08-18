@@ -1,10 +1,13 @@
 extern crate space_rx;
+extern crate failure;
 
-//use space_rx::send_request;
-use space_rx::v2_api::*;
+use space_rx::SortDir;
+use space_rx::v2_api::models::info::*;
 
-fn main() {
-    let cr = CompanyRequestBuilder::default().build().unwrap().send();
-
-    println!("{:?}", cr);
+fn main() -> Result<(), String> {
+    let cr = InfoHistoryRequestBuilder::default().flight_number(14).build()?;
+    let res = space_rx::send(cr);
+    //println!("{:?}", cr);
+    println!("{:?}", res);
+    Ok(())
 }
