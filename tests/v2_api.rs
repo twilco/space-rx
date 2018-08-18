@@ -4,6 +4,7 @@ use space_rx::SortDir;
 use space_rx::v2_api::requests::info::*;
 use space_rx::v2_api::requests::rocket::*;
 use space_rx::v2_api::requests::capsule::*;
+use space_rx::v2_api::requests::launchpad::*;
 
 #[test]
 fn info_request() {
@@ -59,27 +60,22 @@ fn specific_capsule() {
 fn specific_capsule_request_builder_fails_with_no_capsule_id() {
     assert!(space_rx::send(CapsuleRequestBuilder::default().build().unwrap()).is_err());
 }
-//
-//#[test]
-//fn all_capsules() {
-//    assert!(v2_api::all_capsules().is_ok());
-//}
-//
-//#[test]
-//fn specific_capsule() {
-//    assert!(v2_api::capsule("dragon1").is_ok());
-//}
-//
-//#[test]
-//fn all_launchpads() {
-//    assert!(v2_api::all_launchpads().is_ok());
-//}
-//
-//#[test]
-//fn specific_launchpad() {
-//    assert!(v2_api::launchpad("kwajalein_atoll").is_ok());
-//}
-//
+
+#[test]
+fn all_launchpads() {
+    assert!(space_rx::send(AllLaunchpadsRequestBuilder::default().build().unwrap()).is_ok());
+}
+
+#[test]
+fn specific_launchpad() {
+    assert!(space_rx::send(LaunchpadRequestBuilder::default().launchpad_id("kwajalein_atoll").build().unwrap()).is_ok());
+}
+
+#[test]
+fn specific_launchpad_request_builder_fails_with_no_launchpad_id() {
+    assert!(space_rx::send(LaunchpadRequestBuilder::default().build().unwrap()).is_err());
+}
+
 //#[test]
 //fn latest_launch() {
 //    assert!(v2_api::latest_launch().is_ok());

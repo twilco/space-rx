@@ -31,7 +31,7 @@ pub struct RoadsterInfo {
     launch_mass_kg: u16,
     launch_mass_lbs: u16,
     norad_id: u16,
-    epoch_jd: String,
+    epoch_jd: f64,
     orbit_type: String,
     apoapsis_au: f64,
     periapsis_au: f64,
