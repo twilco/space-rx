@@ -1,7 +1,9 @@
 extern crate space_rx;
 
 use space_rx::SortDir;
-use space_rx::v2_api::models::info::*;
+use space_rx::v2_api::requests::info::*;
+use space_rx::v2_api::requests::rocket::*;
+use space_rx::v2_api::requests::capsule::*;
 
 #[test]
 fn info_request() {
@@ -27,16 +29,36 @@ fn historical_event_for_flight() {
 fn historical_event_for_date_range() {
     assert!(space_rx::send(InfoHistoryRequestBuilder::default().start("2017-06-22").end("2018-06-25").build().unwrap()).is_ok());
 }
-//
-//#[test]
-//fn all_rockets() {
-//    assert!(v2_api::all_rockets().is_ok());
-//}
-//
-//#[test]
-//fn specific_rocket() {
-//    assert!(v2_api::rocket("falcon9").is_ok());
-//}
+
+#[test]
+fn all_rockets() {
+    assert!(space_rx::send(AllRocketsRequestBuilder::default().build().unwrap()).is_ok());
+}
+
+#[test]
+fn specific_rocket() {
+    assert!(space_rx::send(RocketRequestBuilder::default().rocket_id("falcon9").build().unwrap()).is_ok());
+}
+
+#[test]
+fn specific_rocket_request_builder_fails_with_no_rocket_id() {
+    assert!(space_rx::send(RocketRequestBuilder::default().build().unwrap()).is_err());
+}
+
+#[test]
+fn all_capsules() {
+    assert!(space_rx::send(AllCapsulesRequestBuilder::default().build().unwrap()).is_ok());
+}
+
+#[test]
+fn specific_capsule() {
+    assert!(space_rx::send(CapsuleRequestBuilder::default().capsule_id("dragon1").build().unwrap()).is_ok());
+}
+
+#[test]
+fn specific_capsule_request_builder_fails_with_no_capsule_id() {
+    assert!(space_rx::send(CapsuleRequestBuilder::default().build().unwrap()).is_err());
+}
 //
 //#[test]
 //fn all_capsules() {

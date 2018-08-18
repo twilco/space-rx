@@ -7,6 +7,7 @@ use url::Url;
 use failure;
 
 pub mod models;
+pub mod requests;
 pub use self::models::capsule::*;
 pub use self::models::common::*;
 pub use self::models::info::*;
