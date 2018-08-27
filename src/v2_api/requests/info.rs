@@ -4,6 +4,8 @@ use ::ApiRequest;
 use ::SortDir;
 use v2_api::models::info::*;
 
+// TODO: Rename these requests to not match the request endpoint exactly, but more of a semantic name.  Or change semantic names to match this pattern of exact endpoint matching
+
 /// Retrieves basic information about SpaceX.
 ///
 /// Endpoint is v2/info.
@@ -64,7 +66,7 @@ impl<'a> ApiRequest for InfoHistoryRequest<'a> {
             params.insert("order", order.to_string());
         }
 
-        if let Some(start) = &self.start {
+        if let Some(start) = self.start {
             params.insert("start", start.to_string());
         }
 

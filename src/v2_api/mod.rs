@@ -13,6 +13,7 @@ pub use self::models::common::*;
 pub use self::models::info::*;
 pub use self::models::launch::*;
 pub use self::models::launchpad::*;
+pub use self::models::part::*;
 pub use self::models::rocket::*;
 
 // TODO: lift out of v2 module - generalize v2 in URL
