@@ -10,7 +10,7 @@ pub struct CorePart {
     original_launch_unix: Option<u64>,
     rtls_attempt: bool,
     rtls_landings: u16,
-    status: String,
+    status: String
 }
 
 #[derive(Debug, Deserialize)]
@@ -24,5 +24,5 @@ pub struct CapsulePart {
     original_launch_unix: Option<u64>,
     #[serde(rename="type")]
     part_type: String,
-    status: String,
+    status: String
 }

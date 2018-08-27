@@ -2,43 +2,43 @@ use super::common::*;
 
 #[derive(Debug, Deserialize)]
 pub struct Capsule {
-    id: String,
-    name: String,
+    active: bool,
     #[serde(rename="type")]
     capsule_type: String,
-    active: bool,
     crew_capacity: u16,
-    sidewall_angle_deg: i16,
-    orbit_duration_yr: u16,
+    diameter: Length,
     heat_shield: HeatShield,
-    thrusters: Vec<Thruster>,
+    height_w_trunk: Length,
+    id: String,
     launch_payload_mass: Weight,
     launch_payload_vol: Volume,
+    name: String,
+    orbit_duration_yr: u16,
+    pressurized_capsule: PressurizedCapsule,
     return_payload_mass: Weight,
     return_payload_vol: Volume,
-    pressurized_capsule: PressurizedCapsule,
-    trunk: Trunk,
-    height_w_trunk: Length,
-    diameter: Length
+    sidewall_angle_deg: i16,
+    thrusters: Vec<Thruster>,
+    trunk: Trunk
 }
 
 #[derive(Debug, Deserialize)]
 struct HeatShield {
+    dev_partner: String,
     material: String,
     size_meters: f64,
-    temp_degrees: i16,
-    dev_partner: String
+    temp_degrees: i16
 }
 
 #[derive(Debug, Deserialize)]
 struct Thruster {
-    #[serde(rename="type")]
-    thruster_type: String,
     amount: u16,
-    pods: u8,
     fuel_1: String,
     fuel_2: String,
-    thrust: Force
+    pods: u8,
+    thrust: Force,
+    #[serde(rename="type")]
+    thruster_type: String
 }
 
 #[derive(Debug, Deserialize)]
@@ -48,14 +48,14 @@ struct PressurizedCapsule {
 
 #[derive(Debug, Deserialize)]
 struct PayloadVolume {
+    cubic_feet: u16,
     cubic_meters: u16,
-    cubic_feet: u16
 }
 
 #[derive(Debug, Deserialize)]
 struct Trunk {
+    cargo: Cargo,
     trunk_volume: TrunkVolume,
-    cargo: Cargo
 }
 
 #[derive(Debug, Deserialize)]
@@ -66,6 +66,6 @@ struct Cargo {
 
 #[derive(Debug, Deserialize)]
 struct TrunkVolume {
+    cubic_feet: u16,
     cubic_meters: u16,
-    cubic_feet: u16
 }

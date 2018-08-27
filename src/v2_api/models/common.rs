@@ -1,13 +1,13 @@
 #[derive(Debug, Deserialize)]
 pub struct Length {
-    meters: Option<f64>,
-    feet: Option<f64>
+    feet: Option<f64>,
+    meters: Option<f64>
 }
 
 #[derive(Debug, Deserialize)]
 pub struct Volume {
-    cubic_meters: u16,
-    cubic_feet: u16
+    cubic_feet: u16,
+    cubic_meters: u16
 }
 
 #[derive(Debug, Deserialize)]

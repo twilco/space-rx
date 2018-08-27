@@ -2,87 +2,87 @@ use super::common::*;
 
 #[derive(Debug, Deserialize)]
 pub struct Rocket {
+    active: bool,
+    boosters: u16,
+    company: String,
+    cost_per_launch: u64,
+    country: String,
+    description: String,
+    diameter: Length,
+    engines: Engines,
+    first_flight: String,
+    first_stage: FirstStage,
+    height: Length,
     id: String,
+    landing_legs: LandingLegs,
+    mass: Weight,
     name: String,
+    payload_weights: Vec<PayloadWeight>,
     #[serde(rename="type")]
     rocket_type: String,
-    active: bool,
     stages: u16,
-    boosters: u16,
-    cost_per_launch: u64,
     success_rate_pct: u8,
-    first_flight: String,
-    country: String,
-    company: String,
-    height: Length,
-    diameter: Length,
-    mass: Weight,
-    payload_weights: Vec<PayloadWeight>,
-    first_stage: FirstStage,
-    second_stage: SecondStage,
-    engines: Engines,
-    landing_legs: LandingLegs,
-    description: String
+    second_stage: SecondStage
 }
 
 #[derive(Debug, Deserialize)]
 struct PayloadWeight {
     id: String,
-    name: String,
     kg: f64,
-    lb: f64
+    lb: f64,
+    name: String
 }
 
 
 #[derive(Debug, Deserialize)]
 struct FirstStage {
-    reusable: bool,
+    burn_time_sec: u32,
     engines: u16,
     fuel_amount_tons: f64,
-    burn_time_sec: u32,
+    reusable: bool,
     thrust_sea_level: Force,
     thrust_vacuum: Force
 }
 
 #[derive(Debug, Deserialize)]
 struct SecondStage {
+    burn_time_sec: u32,
     engines: u16,
     fuel_amount_tons: Option<f64>,
-    burn_time_sec: u32,
-    thrust: Force,
-    payloads: SecondStagePayloads
+    payloads: SecondStagePayloads,
+    thrust: Force
 }
 
 #[derive(Debug, Deserialize)]
 struct SecondStagePayloads {
+    composite_fairing: CompositeFairing,
     option_1: Option<String>,
-    option_2: Option<String>,
-    composite_fairing: CompositeFairing
+    option_2: Option<String>
 }
 
 #[derive(Debug, Deserialize)]
 struct CompositeFairing {
-    height: Length,
-    diameter: Length
+    diameter: Length,
+    height: Length
 }
 
 #[derive(Debug, Deserialize)]
 struct Engines {
-    number: u16,
+    engine_loss_max: Option<u16>,
     #[serde(rename="type")]
     engine_type: String,
-    version: String,
     layout: Option<String>,
-    engine_loss_max: Option<u16>,
     propellant_1: String,
     propellant_2: String,
+    number: u16,
     thrust_sea_level: Force,
+    thrust_to_weight: Option<f64>,
     thrust_vacuum: Force,
-    thrust_to_weight: Option<f64>
+    version: String
 }
 
 #[derive(Debug, Deserialize)]
 struct LandingLegs {
-    number: u8,
-    material: Option<String>
+    material: Option<String>,
+    number: u8
 }
