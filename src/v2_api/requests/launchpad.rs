@@ -30,6 +30,6 @@ impl<'a> ApiRequest for LaunchpadRequest<'a> {
     type Output = Launchpad;
 
     fn endpoint(&self) -> String {
-        "v2/launchpads/".to_owned() + &self.launchpad_id
+        "v2/launchpads/".to_owned() + self.launchpad_id
     }
 }

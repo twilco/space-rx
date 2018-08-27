@@ -87,7 +87,7 @@ impl<'a> ApiRequest for CapsulePartRequest<'a> {
     type Output = CapsulePart;
 
     fn endpoint(&self) -> String {
-        "v2/parts/caps/".to_owned() + &self.capsule_serial
+        "v2/parts/caps/".to_owned() + self.capsule_serial
     }
 }
 
@@ -177,7 +177,7 @@ impl<'a> ApiRequest for CorePartRequest<'a> {
     type Output = CorePart;
 
     fn endpoint(&self) -> String {
-        "v2/parts/cores/".to_owned() + &self.core_serial
+        "v2/parts/cores/".to_owned() + self.core_serial
     }
 }
 

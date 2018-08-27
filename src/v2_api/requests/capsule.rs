@@ -30,6 +30,6 @@ impl<'a> ApiRequest for CapsuleRequest<'a> {
     type Output = Capsule;
 
     fn endpoint(&self) -> String {
-        "v2/capsules/".to_owned() + &self.capsule_id
+        "v2/capsules/".to_owned() + self.capsule_id
     }
 }

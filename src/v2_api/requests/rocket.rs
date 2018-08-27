@@ -30,6 +30,6 @@ impl<'a> ApiRequest for RocketRequest<'a> {
     type Output = Rocket;
 
     fn endpoint(&self) -> String {
-        "v2/rockets/".to_owned() + &self.rocket_id
+        "v2/rockets/".to_owned() + self.rocket_id
     }
 }
