@@ -27,7 +27,7 @@ pub trait ApiRequest {
     }
 }
 
-pub fn send<T: ApiRequest>(request: T) -> Result<T::Output, failure::Error> {
+pub fn send<T: ApiRequest>(request: &T) -> Result<T::Output, failure::Error> {
     let base = &("https://api.spacexdata.com/".to_owned() + &request.endpoint());
     let url = match request.params() {
         Some(map) => Url::parse_with_params(base, map)?,
