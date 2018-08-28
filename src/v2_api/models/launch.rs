@@ -1,111 +1,111 @@
 #[derive(Debug, Deserialize)]
 pub struct Launch {
-    details: Option<String>,
-    flight_number: u32,
-    launch_date_local: String,
-    launch_date_unix: u64,
-    launch_date_utc: String,
-    launch_site: LaunchSite,
-    launch_success: Option<bool>,
-    launch_year: String,
-    links: LaunchLinks,
-    mission_name: String,
-    reuse: Reuse,
-    rocket: LaunchRocket,
-    telemetry: Telemetry,
-    upcoming: bool
+    pub details: Option<String>,
+    pub flight_number: u32,
+    pub launch_date_local: String,
+    pub launch_date_unix: u64,
+    pub launch_date_utc: String,
+    pub launch_site: LaunchSite,
+    pub launch_success: Option<bool>,
+    pub launch_year: String,
+    pub links: LaunchLinks,
+    pub mission_name: String,
+    pub reuse: Reuse,
+    pub rocket: LaunchRocket,
+    pub telemetry: Telemetry,
+    pub upcoming: bool
 }
 
 #[derive(Debug, Deserialize)]
-struct LaunchRocket {
-    first_stage: LaunchFirstStage,
-    rocket_id: String,
-    rocket_name: String,
-    rocket_type: String,
-    second_stage: LaunchSecondStage
+pub struct LaunchRocket {
+    pub first_stage: LaunchFirstStage,
+    pub rocket_id: String,
+    pub rocket_name: String,
+    pub rocket_type: String,
+    pub second_stage: LaunchSecondStage
 }
 
 #[derive(Debug, Deserialize)]
-struct LaunchFirstStage {
-    cores: Vec<Core>
+pub struct LaunchFirstStage {
+    pub cores: Vec<Core>
 }
 
 #[derive(Debug, Deserialize)]
-struct Core {
-    block: Option<u16>,
-    core_serial: Option<String>,
-    flight: Option<u16>,
-    land_success: Option<bool>,
-    landing_type: Option<String>,
-    landing_vehicle: Option<String>,
-    reused: Option<bool>
+pub struct Core {
+    pub block: Option<u16>,
+    pub core_serial: Option<String>,
+    pub flight: Option<u16>,
+    pub land_success: Option<bool>,
+    pub landing_type: Option<String>,
+    pub landing_vehicle: Option<String>,
+    pub reused: Option<bool>
 }
 
 #[derive(Debug, Deserialize)]
-struct LaunchSecondStage {
-    block: Option<u16>,
-    payloads: Vec<LaunchPayload>
+pub struct LaunchSecondStage {
+    pub block: Option<u16>,
+    pub payloads: Vec<LaunchPayload>
 }
 
 #[derive(Debug, Deserialize)]
-struct LaunchPayload {
-    customers: Vec<String>,
-    manufacturer: Option<String>,
-    nationality: Option<String>,
-    norad_id: Option<Vec<u32>>,
-    orbit: String,
-    orbit_params: OrbitParams,
-    payload_id: String,
-    payload_mass_kg: Option<f64>,
-    payload_mass_lbs: Option<f64>,
-    payload_type: String,
-    reused: bool
+pub struct LaunchPayload {
+    pub customers: Vec<String>,
+    pub manufacturer: Option<String>,
+    pub nationality: Option<String>,
+    pub norad_id: Option<Vec<u32>>,
+    pub orbit: String,
+    pub orbit_params: OrbitParams,
+    pub payload_id: String,
+    pub payload_mass_kg: Option<f64>,
+    pub payload_mass_lbs: Option<f64>,
+    pub payload_type: String,
+    pub reused: bool
 }
 
 #[derive(Debug, Deserialize)]
-struct OrbitParams {
-    apoapsis_km: Option<f64>,
-    eccentricity: Option<f64>,
-    inclination_deg: Option<f64>,
-    lifespan_years: Option<u32>,
-    longitude: Option<f64>,
-    periapsis_km: Option<f64>,
-    period_min: Option<f64>,
-    reference_system: String,
-    regime: Option<String>,
-    semi_major_axis_km: Option<f64>
+pub struct OrbitParams {
+    pub apoapsis_km: Option<f64>,
+    pub eccentricity: Option<f64>,
+    pub inclination_deg: Option<f64>,
+    pub lifespan_years: Option<u32>,
+    pub longitude: Option<f64>,
+    pub periapsis_km: Option<f64>,
+    pub period_min: Option<f64>,
+    pub reference_system: String,
+    pub regime: Option<String>,
+    pub semi_major_axis_km: Option<f64>
 }
 
 #[derive(Debug, Deserialize)]
-struct Telemetry {
-    flight_club: Option<String>
+pub struct Telemetry {
+    pub flight_club: Option<String>
 }
 
 #[derive(Debug, Deserialize)]
-struct Reuse {
-    capsule: bool,
-    core: bool,
-    fairings: bool,
-    side_core1: bool,
-    side_core2: bool
+pub struct Reuse {
+    pub capsule: bool,
+    pub core: bool,
+    pub fairings: bool,
+    pub side_core1: bool,
+    pub side_core2: bool
 }
 
 #[derive(Debug, Deserialize)]
-struct LaunchSite {
-    site_id: String,
-    site_name: String,
-    site_name_long: String
+pub struct LaunchSite {
+    pub site_id: String,
+    pub site_name: String,
+    pub site_name_long: String
 }
 
 #[derive(Debug, Deserialize)]
-struct LaunchLinks {
-    article_link: Option<String>,
-    mission_patch: Option<String>,
-    mission_patch_small: Option<String>,
-    presskit: Option<String>,
-    reddit_campaign: Option<String>,
-    reddit_launch: Option<String>,
-    reddit_media: Option<String>,
-    video_link: Option<String>,
-    wikipedia: Option<String>
+pub struct LaunchLinks {
+    pub article_link: Option<String>,
+    pub mission_patch: Option<String>,
+    pub mission_patch_small: Option<String>,
+    pub presskit: Option<String>,
+    pub reddit_campaign: Option<String>,
+    pub reddit_launch: Option<String>,
+    pub reddit_media: Option<String>,
+    pub video_link: Option<String>,
+    pub wikipedia: Option<String>
 }

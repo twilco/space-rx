@@ -1,17 +1,17 @@
 #[derive(Debug, Deserialize)]
 pub struct Launchpad {
-    details: String,
-    full_name: String,
-    id: String,
-    location: LaunchpadLocation,
-    status: String,
-    vehicles_launched: Vec<String>
+    pub details: String,
+    pub full_name: String,
+    pub id: String,
+    pub location: LaunchpadLocation,
+    pub status: String,
+    pub vehicles_launched: Vec<String>
 }
 
 #[derive(Debug, Deserialize)]
-struct LaunchpadLocation {
-    latitude: f64,
-    longitude: f64,
-    name: String,
-    region: String
+pub struct LaunchpadLocation {
+    pub latitude: f64,
+    pub longitude: f64,
+    pub name: String,
+    pub region: String
 }

@@ -10,6 +10,6 @@ fn main() -> Result<(), String> {
     let cr = CorePartRequestBuilder::default().core_serial("B1041").build()?;
     let res = space_rx::send(&cr);
     //println!("{:?}", cr);
-    println!("{:?}", res);
+    println!("{:?}", res.unwrap().core_serial);
     Ok(())
 }

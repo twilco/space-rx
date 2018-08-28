@@ -2,87 +2,87 @@ use super::common::*;
 
 #[derive(Debug, Deserialize)]
 pub struct Rocket {
-    active: bool,
-    boosters: u16,
-    company: String,
-    cost_per_launch: u64,
-    country: String,
-    description: String,
-    diameter: Length,
-    engines: Engines,
-    first_flight: String,
-    first_stage: FirstStage,
-    height: Length,
-    id: String,
-    landing_legs: LandingLegs,
-    mass: Weight,
-    name: String,
-    payload_weights: Vec<PayloadWeight>,
+    pub active: bool,
+    pub boosters: u16,
+    pub company: String,
+    pub cost_per_launch: u64,
+    pub country: String,
+    pub description: String,
+    pub diameter: Length,
+    pub engines: Engines,
+    pub first_flight: String,
+    pub first_stage: FirstStage,
+    pub height: Length,
+    pub id: String,
+    pub landing_legs: LandingLegs,
+    pub mass: Weight,
+    pub name: String,
+    pub payload_weights: Vec<PayloadWeight>,
     #[serde(rename="type")]
-    rocket_type: String,
-    stages: u16,
-    success_rate_pct: u8,
-    second_stage: SecondStage
+    pub rocket_type: String,
+    pub stages: u16,
+    pub success_rate_pct: u8,
+    pub second_stage: SecondStage
 }
 
 #[derive(Debug, Deserialize)]
-struct PayloadWeight {
-    id: String,
-    kg: f64,
-    lb: f64,
-    name: String
+pub struct PayloadWeight {
+    pub id: String,
+    pub kg: f64,
+    pub lb: f64,
+    pub name: String
 }
 
 
 #[derive(Debug, Deserialize)]
-struct FirstStage {
-    burn_time_sec: u32,
-    engines: u16,
-    fuel_amount_tons: f64,
-    reusable: bool,
-    thrust_sea_level: Force,
-    thrust_vacuum: Force
+pub struct FirstStage {
+    pub burn_time_sec: u32,
+    pub engines: u16,
+    pub fuel_amount_tons: f64,
+    pub reusable: bool,
+    pub thrust_sea_level: Force,
+    pub thrust_vacuum: Force
 }
 
 #[derive(Debug, Deserialize)]
-struct SecondStage {
-    burn_time_sec: u32,
-    engines: u16,
-    fuel_amount_tons: Option<f64>,
-    payloads: SecondStagePayloads,
-    thrust: Force
+pub struct SecondStage {
+    pub burn_time_sec: u32,
+    pub engines: u16,
+    pub fuel_amount_tons: Option<f64>,
+    pub payloads: SecondStagePayloads,
+    pub thrust: Force
 }
 
 #[derive(Debug, Deserialize)]
-struct SecondStagePayloads {
-    composite_fairing: CompositeFairing,
-    option_1: Option<String>,
-    option_2: Option<String>
+pub struct SecondStagePayloads {
+    pub composite_fairing: CompositeFairing,
+    pub option_1: Option<String>,
+    pub option_2: Option<String>
 }
 
 #[derive(Debug, Deserialize)]
-struct CompositeFairing {
-    diameter: Length,
-    height: Length
+pub struct CompositeFairing {
+    pub diameter: Length,
+    pub height: Length
 }
 
 #[derive(Debug, Deserialize)]
-struct Engines {
-    engine_loss_max: Option<u16>,
+pub struct Engines {
+    pub engine_loss_max: Option<u16>,
     #[serde(rename="type")]
-    engine_type: String,
-    layout: Option<String>,
-    propellant_1: String,
-    propellant_2: String,
-    number: u16,
-    thrust_sea_level: Force,
-    thrust_to_weight: Option<f64>,
-    thrust_vacuum: Force,
-    version: String
+    pub engine_type: String,
+    pub layout: Option<String>,
+    pub propellant_1: String,
+    pub propellant_2: String,
+    pub number: u16,
+    pub thrust_sea_level: Force,
+    pub thrust_to_weight: Option<f64>,
+    pub thrust_vacuum: Force,
+    pub version: String
 }
 
 #[derive(Debug, Deserialize)]
-struct LandingLegs {
-    material: Option<String>,
-    number: u8
+pub struct LandingLegs {
+    pub material: Option<String>,
+    pub number: u8
 }

@@ -2,70 +2,70 @@ use super::common::*;
 
 #[derive(Debug, Deserialize)]
 pub struct Capsule {
-    active: bool,
+    pub active: bool,
     #[serde(rename="type")]
-    capsule_type: String,
-    crew_capacity: u16,
-    diameter: Length,
-    heat_shield: HeatShield,
-    height_w_trunk: Length,
-    id: String,
-    launch_payload_mass: Weight,
-    launch_payload_vol: Volume,
-    name: String,
-    orbit_duration_yr: u16,
-    pressurized_capsule: PressurizedCapsule,
-    return_payload_mass: Weight,
-    return_payload_vol: Volume,
-    sidewall_angle_deg: i16,
-    thrusters: Vec<Thruster>,
-    trunk: Trunk
+    pub capsule_type: String,
+    pub crew_capacity: u16,
+    pub diameter: Length,
+    pub heat_shield: HeatShield,
+    pub height_w_trunk: Length,
+    pub id: String,
+    pub launch_payload_mass: Weight,
+    pub launch_payload_vol: Volume,
+    pub name: String,
+    pub orbit_duration_yr: u16,
+    pub pressurized_capsule: PressurizedCapsule,
+    pub return_payload_mass: Weight,
+    pub return_payload_vol: Volume,
+    pub sidewall_angle_deg: i16,
+    pub thrusters: Vec<Thruster>,
+    pub trunk: Trunk
 }
 
 #[derive(Debug, Deserialize)]
-struct HeatShield {
-    dev_partner: String,
-    material: String,
-    size_meters: f64,
-    temp_degrees: i16
+pub struct HeatShield {
+    pub dev_partner: String,
+    pub material: String,
+    pub size_meters: f64,
+    pub temp_degrees: i16
 }
 
 #[derive(Debug, Deserialize)]
-struct Thruster {
-    amount: u16,
-    fuel_1: String,
-    fuel_2: String,
-    pods: u8,
-    thrust: Force,
+pub struct Thruster {
+    pub amount: u16,
+    pub fuel_1: String,
+    pub fuel_2: String,
+    pub pods: u8,
+    pub thrust: Force,
     #[serde(rename="type")]
-    thruster_type: String
+    pub thruster_type: String
 }
 
 #[derive(Debug, Deserialize)]
-struct PressurizedCapsule {
-    payload_volume: PayloadVolume
+pub struct PressurizedCapsule {
+    pub payload_volume: PayloadVolume
 }
 
 #[derive(Debug, Deserialize)]
-struct PayloadVolume {
-    cubic_feet: u16,
-    cubic_meters: u16,
+pub struct PayloadVolume {
+    pub cubic_feet: u16,
+    pub cubic_meters: u16,
 }
 
 #[derive(Debug, Deserialize)]
-struct Trunk {
-    cargo: Cargo,
-    trunk_volume: TrunkVolume,
+pub struct Trunk {
+    pub cargo: Cargo,
+    pub trunk_volume: TrunkVolume,
 }
 
 #[derive(Debug, Deserialize)]
-struct Cargo {
-    solar_array: u8,
-    unpressurized_cargo: bool
+pub struct Cargo {
+    pub solar_array: u8,
+    pub unpressurized_cargo: bool
 }
 
 #[derive(Debug, Deserialize)]
-struct TrunkVolume {
-    cubic_feet: u16,
-    cubic_meters: u16,
+pub struct TrunkVolume {
+    pub cubic_feet: u16,
+    pub cubic_meters: u16,
 }
