@@ -4,8 +4,6 @@ use ::ApiRequest;
 use ::SortDir;
 use v2_api::models::info::*;
 
-// TODO: Rename these requests to not match the request endpoint exactly, but more of a semantic name.  Or change semantic names to match this pattern of exact endpoint matching
-
 /// Retrieves basic information about SpaceX.
 ///
 /// Endpoint is v2/info.
@@ -29,9 +27,9 @@ impl ApiRequest for InfoRequest {
 /// Endpoint is v2/info/roadster.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
-pub struct InfoRoadsterRequest {}
+pub struct RoadsterInfoRequest {}
 
-impl ApiRequest for InfoRoadsterRequest {
+impl ApiRequest for RoadsterInfoRequest {
     type Output = RoadsterInfo;
 
     fn endpoint(&self) -> String {
@@ -45,14 +43,14 @@ impl ApiRequest for InfoRoadsterRequest {
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]
-pub struct InfoHistoryRequest<'a> {
+pub struct CompanyHistoryRequest<'a> {
     order: Option<SortDir>,
     start: Option<&'a str>,
     end: Option<&'a str>,
     flight_number: Option<u32>
 }
 
-impl<'a> ApiRequest for InfoHistoryRequest<'a> {
+impl<'a> ApiRequest for CompanyHistoryRequest<'a> {
     type Output = Vec<HistoricalEvent>;
 
     fn endpoint(&self) -> String {
