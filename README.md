@@ -25,7 +25,7 @@ This crate provides easy to use request builders for all available endpoints in 
 
 ## Example
 
-Here's an example in which we make a request to the `v2/rockets/{rocket_id}` - we specify the `rocket_id` as a field in the request builder.
+Here's an example in which we make a request to the `v2/rockets/{rocket_id}` endpoint - we specify the `rocket_id` as a field in the request builder.
 
 ```rust
 extern crate space_rx;
