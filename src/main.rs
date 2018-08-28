@@ -1,9 +1,6 @@
 extern crate space_rx;
 extern crate failure;
 
-use space_rx::SortDir;
-use space_rx::v2_api::requests::info::*;
-use space_rx::v2_api::requests::launch::*;
 use space_rx::v2_api::requests::part::*;
 
 fn main() -> Result<(), String> {

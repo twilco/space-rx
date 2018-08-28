@@ -5,7 +5,6 @@ extern crate serde_json;
 extern crate reqwest;
 #[macro_use]
 extern crate derive_builder;
-#[macro_use]
 extern crate failure;
 extern crate url;
 
@@ -17,6 +16,7 @@ use url::Url;
 
 pub mod v2_api;
 
+/// Behavior for send()-able SpaceX API requests.
 pub trait ApiRequest {
     type Output: DeserializeOwned;
 
@@ -27,6 +27,7 @@ pub trait ApiRequest {
     }
 }
 
+/// Sends off a built SpaceX API request, and returns the model associated with the request type.
 pub fn send<T: ApiRequest>(request: &T) -> Result<T::Output, failure::Error> {
     let base = &("https://api.spacexdata.com/".to_owned() + &request.endpoint());
     let url = match request.params() {
@@ -40,6 +41,7 @@ pub fn send<T: ApiRequest>(request: &T) -> Result<T::Output, failure::Error> {
     Ok(response.json()?)
 }
 
+/// Direction in which to sort returned results - can be used as a parameter in some request types.
 #[derive(Clone, Debug)]
 pub enum SortDir {
     ASC,
