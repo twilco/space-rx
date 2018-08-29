@@ -21,7 +21,7 @@ space_rx = "0.1"
 
 ## Overview
 
-This crate provides easy to use request builders for all available endpoints in the unofficial SpaceX API.  These request builders return a model after being sent, which in turn gives you type-safe, Rustic access to all fields exposed by each of the endpoints.
+This crate provides easy to use request builders for all available endpoints in the unofficial SpaceX API.  These request builders return a model after being built and sent, which in turn gives you type-safe, Rustic access to all fields exposed by each of the endpoints.
 
 ## Example
 
@@ -38,7 +38,7 @@ fn main() {
 
     println!("The Falcon 9 weighs {:?}lbs.  Wow!", rocket.mass.lb);
     println!("The Falcon 9's landing legs are made out of {:?}.", rocket.landing_legs.material.unwrap());
-    println!("The Falcon 9's {:?} engines used {:?} and {:?} as propellant.", rocket.engines.number, rocket.engines.propellant_1, rocket.engines.propellant_2);
+    println!("The Falcon 9's {:?} engine(s) use {:?} and {:?} as propellant.", rocket.engines.number, rocket.engines.propellant_1, rocket.engines.propellant_2);
 }
 ```
 
