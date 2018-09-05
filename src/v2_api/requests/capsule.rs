@@ -1,9 +1,7 @@
 use ::ApiRequest;
 use v2_api::models::capsule::*;
 
-/// Retrieves basic information about all capsules.
-///
-/// Endpoint is v2/capsules.
+/// Retrieves information about all capsules.  Endpoint is `v2/capsules`.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
 pub struct AllCapsulesRequest {}
@@ -16,13 +14,12 @@ impl ApiRequest for AllCapsulesRequest {
     }
 }
 
-/// Retrieves basic information about a specific capsule.
-///
-/// Endpoint is v2/capsules/{capsule_id}.
+/// Retrieves information about a specific capsule.  Endpoint is `v2/capsules/{capsule_id}`.
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]
 pub struct CapsuleRequest<'a> {
+    /// **This parameter is required** - building this request without this parameter will result in an error.
     capsule_id: &'a str
 }
 

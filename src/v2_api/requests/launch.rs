@@ -6,9 +6,7 @@ use v2_api::models::launch::*;
 
 // TODO: Make all launch param boilerplate into a macro to avoid repeating the same 200 lines over and over?
 
-/// Retrieves basic information about all past and upcoming launches.
-///
-/// Endpoint is v2/launches/all.
+/// Retrieves information about all past and upcoming launches.  Endpoint is `v2/launches/all`.
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]
@@ -44,7 +42,7 @@ pub struct AllLaunchesRequest<'a> {
     manufacturer: Option<&'a str>,
     payload_type: Option<&'a str>,
     orbit: Option<&'a str>,
-    launch_success: Option<&'a str>,
+    launch_success: Option<bool>,
     reused: Option<bool>,
     land_success: Option<bool>,
     landing_type: Option<&'a str>,
@@ -210,9 +208,7 @@ impl<'a> ApiRequest for AllLaunchesRequest<'a> {
     }
 }
 
-/// Retrieves basic information about all past launches.
-///
-/// Endpoint is v2/launches.
+/// Retrieves information about all past launches.  Endpoint is `v2/launches`.
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]
@@ -414,9 +410,7 @@ impl<'a> ApiRequest for PastLaunchesRequest<'a> {
     }
 }
 
-/// Retrieves basic information about the latest launch.
-///
-/// Endpoint is v2/launches/latest.
+/// Retrieves information about the latest launch.  Endpoint is `v2/launches/latest`.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
 pub struct LatestLaunchRequest {}
@@ -429,9 +423,7 @@ impl ApiRequest for LatestLaunchRequest {
     }
 }
 
-/// Retrieves basic information about the next launch.
-///
-/// Endpoint is v2/launches/next.
+/// Retrieves information about the next launch.  Endpoint is `v2/launches/next`.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
 pub struct NextLaunchRequest {}
@@ -444,9 +436,7 @@ impl ApiRequest for NextLaunchRequest {
     }
 }
 
-/// Retrieves basic information about all upcoming launches.
-///
-/// Endpoint is v2/launches/upcoming.
+/// Retrieves information about all upcoming launches.  Endpoint is `v2/launches/upcoming`.
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]

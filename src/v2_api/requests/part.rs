@@ -5,9 +5,7 @@ use ::SortDir;
 
 use v2_api::models::part::*;
 
-/// Retrieves info about parts used in all capsules.
-///
-/// Endpoint is v2/parts/caps.
+/// Retrieves info about parts for all capsules.  Endpoint is `v2/parts/caps`.
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]
@@ -74,12 +72,11 @@ impl<'a> ApiRequest for AllCapsulePartsRequest<'a> {
     }
 }
 
-/// Retrieves basic information about parts for a specific capsule.
-///
-/// Endpoint is v2/parts/caps/{capsule_serial}.
+/// Retrieves information about a part for a specific capsule.  Endpoint is `v2/parts/caps/{capsule_serial}`.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
 pub struct CapsulePartRequest<'a> {
+    /// **This parameter is required** - building this request without this parameter will result in an error.
     capsule_serial: &'a str
 }
 
@@ -91,9 +88,7 @@ impl<'a> ApiRequest for CapsulePartRequest<'a> {
     }
 }
 
-/// Retrieves info about parts used in all cores.
-///
-/// Endpoint is v2/parts/cores.
+/// Retrieves info about parts for all cores.  Endpoint is `v2/parts/cores`.
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]
@@ -164,12 +159,11 @@ impl<'a> ApiRequest for AllCorePartsRequest<'a> {
     }
 }
 
-/// Retrieves basic information about parts for a specific capsule.
-///
-/// Endpoint is v2/parts/caps/{core_serial}.
+/// Retrieves information about a part for a specific core.  Endpoint is `v2/parts/cores/{core_serial}`.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
 pub struct CorePartRequest<'a> {
+    /// **This parameter is required** - building this request without this parameter will result in an error.
     core_serial: &'a str
 }
 
