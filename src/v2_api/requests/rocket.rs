@@ -1,9 +1,7 @@
 use ::ApiRequest;
 use v2_api::models::rocket::*;
 
-/// Retrieves basic information about all SpaceX rockets.
-///
-/// Endpoint is v2/rockets.
+/// Retrieves information about all SpaceX rockets.  Endpoint is `v2/rockets`.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
 pub struct AllRocketsRequest {}
@@ -16,13 +14,12 @@ impl ApiRequest for AllRocketsRequest {
     }
 }
 
-/// Retrieves basic information about a specific SpaceX rocket.
-///
-/// Endpoint is v2/rockets/{rocket_id}.
+/// Retrieves information about a specific SpaceX rocket.  Endpoint is `v2/rockets/{rocket_id}`.
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]
 pub struct RocketRequest<'a> {
+    /// **This parameter is required** - building this request without this parameter will result in an error.
     rocket_id: &'a str
 }
 

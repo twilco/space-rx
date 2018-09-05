@@ -4,9 +4,7 @@ use ::ApiRequest;
 use ::SortDir;
 use v2_api::models::info::*;
 
-/// Retrieves basic information about SpaceX.
-///
-/// Endpoint is v2/info.
+/// Retrieves information about SpaceX.  Endpoint is `v2/info`.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
 pub struct InfoRequest {}
@@ -20,11 +18,9 @@ impl ApiRequest for InfoRequest {
 }
 
 /// Retrieves orbital and other more general information about the Roadster launched into Space, driven
-/// by none other than Starman.
+/// by none other than Starman.  Endpoint is `v2/info/roadster`.
 ///
 /// According to the API documentation, this data is updated every 5 minutes.
-///
-/// Endpoint is v2/info/roadster.
 #[derive(Builder, Debug, Default)]
 #[builder(default)]
 pub struct RoadsterInfoRequest {}
@@ -37,9 +33,7 @@ impl ApiRequest for RoadsterInfoRequest {
     }
 }
 
-/// Retrieves company info and milestones.
-///
-/// Endpoint is v2/info/history.
+/// Retrieves company info and milestones.  Endpoint is `v2/info/history`.
 #[derive(Builder, Debug, Default)]
 #[builder(setter(into))]
 #[builder(default)]
