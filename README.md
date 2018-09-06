@@ -3,7 +3,7 @@
 ![Crates.io](https://img.shields.io/crates/v/space_rx.svg)
 [![Documentation](https://docs.rs/space-rx/badge.svg?style=flat-square)](https://docs.rs/space-rx/)
 
-Rust wrapper over the unofficial SpaceX API (which can be found [here](https://github.com/r-spacex/SpaceX-API)).
+Rust wrapper over the [unofficial SpaceX API](https://github.com/r-spacex/SpaceX-API).
 
 [Documentation](https://docs.rs/space-rx/)
 
